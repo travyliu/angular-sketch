@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sketch">
+<head>
+	<meta charset="UTF-8">
+	<title>sketch</title>
+	<script src="js/angular.js"></script>
+	<script src="js/index.js"></script>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body ng-controller="mysketch" style="background: rgb(0,128,131);">
+    <div class="icon"></div>
+    <div class="left">
+      <div class="title">画图</div>
+      <ul>
+      	<li ng-repeat="(key, value) in tools" ng-click="settool(value)" ng-class="{active:value==tool}">
+      	<span>{{key}}</span></li>
+      </ul>
+    	<!-- <input ng-model="canvasWH.width" type="range" min="400" max="800" step="1">
+    	<input ng-model="canvasWH.height" type="range" min="400" max="800" step="1"> -->
+    	
+    	<div class="yangshi">
+    	<div ng-class="{active:csState.style=='fill'}" ng-click="setStyle('fill')" class="tianchong">填充</div>
+    	<input type="color" ng-model="csState.fillStyle">
+    	<div ng-class="{active:csState.style=='stroke'}"  ng-click="setStyle('stroke')"class="huaxie">画线</div>
+    	<input type="color" ng-model="csState.strokeStyle">
+    	<div class="xiekuan">线宽度</div>
+    	<input type="range" ng-model="csState.lineWidth" min="1" max="30" step="1">
+    	</div>
+    	
+    	<div class="caozuo">
+    	<div ng-click="newSketch()" class="xiugei">新建</div>
+    	<a ng-click="save($event)" class="xiugei">保存</a>
+    	<div class="xiugei">回退</div>
+       </div>
+    <div id="drawregion">
+    	<canvas width="{{canvasWH.width}}" height="{{canvasWH.height}}" id="canvas">
+    	</div>
+    </div>	
+</body>
+</html>
