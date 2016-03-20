@@ -24,11 +24,12 @@ body,ul,li,hr{
 }
 .left{
 	position: absolute;
-	left: 283px;
-    top: 9.5px;
+	left: 50%;
+    top: 5%;
     width: 800px;
     height: auto;
-    margin: 0px auto;
+    margin-left: -400px;
+    /* margin: 0px auto; */
     border: 1px solid rgb(102, 102, 102);
     background: #fff;
 }
